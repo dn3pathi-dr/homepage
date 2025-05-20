@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Dinesh Tripathi | Professor of Mathematics | Manav Rachna University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --mru-blue: #003366;
+            --mru-gold: #FFD700;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        /* Header with Parallax Effect */
+        .parallax-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header-content {
+            z-index: 2;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            font-weight: 300;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        /* University Logo Styles */
+        .university-affiliation {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .university-affiliation img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        
+        .university-affiliation span {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.9);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        nav.scrolled {
+            background: var(--mru-blue);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--mru-gold);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--mru-blue);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .research-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .research-tag {
+            background: var(--light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .research-tag:hover {
+            background: var(--mru-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--mru-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--mru-blue);
+            top: 30px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .timeline-date {
+            color: var(--mru-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-subtitle {
+            color: var(--mru-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Publications */
+        .publications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .publication-header {
+            background: var(--mru-blue);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .publication-year {
+            display: inline-block;
+            background: var(--mru-gold);
+            color: var(--mru-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .publication-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .publication-body {
+            padding: 1.5rem;
+        }
+        
+        .publication-authors {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            color: var(--mru-blue);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .pub-link:hover {
+            background: var(--mru-blue);
+            color: white;
+        }
+        
+        /* Teaching Section */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .teaching-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .teaching-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .teaching-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--mru-blue);
+            margin-top: 0;
+        }
+        
+        .course-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .course-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            background: var(--mru-blue);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            margin: 0 0 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-text p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--mru-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--mru-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #002244;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--mru-blue);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            margin-right: 20px;
+        }
+        
+        .footer-text {
+            text-align: left;
+        }
+        
+        .footer-text h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 0.5rem;
+        }
+        
+        .footer-text p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--mru-gold);
+            color: var(--mru-blue);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .publications-container,
+            .teaching-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .footer-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/mru-logo-white.png" alt="MRU Logo" class="logo-img">
+                <span class="logo-text">Dr. D. Tripathi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Header with Parallax -->
+    <header class="parallax-header">
+        <div class="header-content">
+            <img src="C:\Users\LENOVO\Music\Home_Page_DTripathi\images/your-profile.jpg" alt="Dr. Dinesh Tripathi" class="profile-img">
+            <h1>Dr. Dinesh Tripathi</h1>
+            <p class="title">Associate Professor of Mathematics</p>
+            
+            <div class="university-affiliation">
+                <img src="C:\Users\LENOVO\Music\Home_Page_DTripathi\images/mru-logo-white.png" alt="Manav Rachna University">
+                <span>Manav Rachna University</span>
+            </div>
+            
+            <div class="research-interests">
+                <span>Approximation Theory</span>
+                <span>Complex Polynomials</span>
+                <span>Quaternionic Generalizations</span>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I am an Associate Professor in the Department of Mathematics at Manav Rachna University, Faridabad, with over 15 years of experience in teaching and research.</p>
+                        <p>My research focuses on Approximation Theory and Complex Polynomial Approximation, with particular interest in generalizations of established complex polynomial inequalities including Bernstein inequality, Malik, Ankeny and Rivlin, Aziz, and Xin Li inequalities.</p>
+                        <p>I have published numerous papers in renowned international journals and presented my work at conferences worldwide. My Ph.D. thesis presented enhanced generalizations and extensions of several established complex polynomial inequalities.</p>
+                        
+                        <h3>Research Interests</h3>
+                        <div class="research-interests">
+                            <span class="research-tag">Approximation Theory</span>
+                            <span class="research-tag">Complex Polynomial Approximation</span>
+                            <span class="research-tag">Bernstein Inequality</span>
+                            <span class="research-tag">Polar Derivatives</span>
+                            <span class="research-tag">Quaternionic Polynomials</span>
+                            <span class="research-tag">Eneström-Kakeya Theorem</span>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="C:\Users\LENOVO\Music\Home_Page_DTripathi\images/research.jpg" alt="Research Work" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Experience Section -->
+        <section id="research" class="research-section" style="background: #f5f7fa;">
+            <div class="container">
+                <h2 class="section-title">Research Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2021 - Present</div>
+                            <h3 class="timeline-title">Associate Professor</h3>
+                            <p class="timeline-subtitle">Manav Rachna University, Faridabad</p>
+                            <p>Leading research in complex polynomial inequalities and quaternionic generalizations of classical theorems. Supervising graduate students and collaborating with international researchers.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2011 - 2021</div>
+                            <h3 class="timeline-title">Assistant Professor</h3>
+                            <p class="timeline-subtitle">Manav Rachna University, Faridabad</p>
+                            <p>Published multiple papers on polynomial inequalities and their generalizations. Taught advanced mathematics courses and mentored undergraduate research projects.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2008 - 2011</div>
+                            <h3 class="timeline-title">Lecturer</h3>
+                            <p class="timeline-subtitle">Manav Rachna College of Engineering, Faridabad</p>
+                            <p>Began academic career while completing PhD research. Developed foundational teaching methods for engineering mathematics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="publications-section">
+            <div class="container">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publications-container">
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <span class="publication-year">2024</span>
+                            <h3 class="publication-title">Generalizations of Some Inequalities of the Polar Derivatives of Polynomials</h3>
+                            <p class="publication-journal">arXiv preprint</p>
+                        </div>
+                        <div class="publication-body">
+                            <p class="publication-authors">Deepak Kumar, D. Tripathi, and Sunil Hans</p>
+                            <div class="publication-links">
+                                <a href="https://arxiv.org/pdf/2412.04176" class="pub-link" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                                <a href="https://arxiv.org/abs/2412.04176" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <span class="publication-year">2020</span>
+                            <h3 class="publication-title">A Note on Eneström-Kakeya Theorem for a Polynomial with Quaternionic Variable</h3>
+                            <p class="publication-journal">Arabian Journal of Mathematics</p>
+                        </div>
+                        <div class="publication-body">
+                            <p class="publication-authors">D. Tripathi</p>
+                            <div class="publication-links">
+                                <a href="https://doi.org/10.1007/s40065-020-00283-0" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <span class="publication-year">2020</span>
+                            <h3 class="publication-title">A Refinement of an Inequality due to Ankeny and Rivlin</h3>
+                            <p class="publication-journal">Studia Universitatis Babes-Bolyai Mathematica</p>
+                        </div>
+                        <div class="publication-body">
+                            <p class="publication-authors">D. Tripathi</p>
+                            <div class="publication-links">
+                                <a href="https://doi.org/10.24193/subbmath.2020.3.01" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i> DOI</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://scholar.google.com/citations?hl=en&user=ZpmAL7cAAAAJ" class="submit-btn" style="display: inline-flex; align-items: center;">
+                        <i class="fas fa-list" style="margin-right: 8px;"></i>View All Publications
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching" class="teaching-section" style="background: #f5f7fa;">
+            <div class="container">
+                <h2 class="section-title">Teaching Portfolio</h2>
+                <div class="teaching-grid">
+                    <div class="teaching-card">
+                        <h3>Courses Taught</h3>
+                        <ul class="course-list">
+                            <li>Engineering Mathematics (AICTE)</li>
+                            <li>Discrete Mathematics</li>
+                            <li>Complex Analysis</li>
+                            <li>Functional Analysis</li>
+                            <li>Measure Theory</li>
+                            <li>Algebra & Field Theory</li>
+                            <li>Integral Equations</li>
+                        </ul>
+                    </div>
+                    <div class="teaching-card">
+                        <h3>Teaching Philosophy</h3>
+                        <p>My teaching approach combines rigorous mathematical theory with practical applications. I emphasize:</p>
+                        <ul>
+                            <li>Conceptual understanding over rote learning</li>
+                            <li>Connections between pure and applied mathematics</li>
+                            <li>Research-oriented teaching methodology</li>
+                            <li>Interactive problem-solving sessions</li>
+                            <li>Technology-enhanced learning</li>
+                        </ul>
+                    </div>
+                    <div class="teaching-card">
+                        <h3>Academic Leadership</h3>
+                        <ul>
+                            <li>Course Coordinator for UG and PG programs</li>
+                            <li>Member of Board of Studies</li>
+                            <li>Chief Program Coordinator since 2015</li>
+                            <li>Proctor of University (since 2023)</li>
+                            <li>Organizer of international conferences</li>
+                            <li>Member of Anti-Ragging Committee</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 2rem;">Contact Information</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>dinesh@mru.edu.in; dn3pathi.phdcpa@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91-7827580414</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>Department of Sciences-Mathematics<br>Manav Rachna University<br>Faridabad, Haryana 121004</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday-Friday: 10:00 AM - 4:00 PM<br>By appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 2rem;">Send Me a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="C:\Users\LENOVO\Music\Home_Page_DTripathi\images/mru-logo-white.png" alt="Manav Rachna University">
+                <div class="footer-text">
+                    <h3>Dr. Dinesh Tripathi</h3>
+                    <p>Associate Professor | Department of Sciences-Mathematics</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="https://scholar.google.com/citations?hl=en&user=ZpmAL7cAAAAJ"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-researchgate"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-orcid"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2024 Dr. Dinesh Tripathi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
